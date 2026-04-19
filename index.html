@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туры по Корее</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        /* HTML MENU HEADER */
+
+        .htmlmenu-header {
+            position: relative;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            box-sizing: border-box;
+        }
+
+            .htmlmenu-header *,
+            .htmlmenu-header *:before,
+            .htmlmenu-header *:after {
+                box-sizing: border-box;
+            }
+
+        /* HTML MENU CONTAINER */
+
+        .htmlmenu-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        /* HTML MENU HEADER SHADOW */
+
+        .htmlmenu-header-shadow {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+            .htmlmenu-header-shadow:before {
+                display: block;
+                position: relative;
+                content: "";
+                width: 100%;
+                height: 60px;
+                top: -60px;
+                border-radius: 50%;
+                box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.08);
+            }
+
+        /* HTML MENU LOGO */
+
+        .htmlmenu-logo {
+            padding: 0 0 0 30px;
+            text-align: left;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 70px;
+        }
+
+            .htmlmenu-logo a {
+                -webkit-text-decoration: none;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-family: sans-serif;
+                color: #000000;
+            }
+
+                .htmlmenu-logo a img {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+        /* HTML MENU TOGGLE */
+
+        .htmlmenu-toggle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            margin: 0;
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+            .htmlmenu-toggle + label {
+                position: absolute;
+                top: 26.25px;
+                right: 30px;
+                width: 20px;
+                height: 16px;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-pack: justify;
+                -webkit-justify-content: space-between;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                cursor: pointer;
+                -webkit-transition: -webkit-transform 200ms ease-out;
+                -webkit-transition: transform 200ms ease-out;
+                transition: transform 200ms ease-out;
+            }
+
+                .htmlmenu-toggle + label > span {
+                    display: block;
+                    background-color: #000000;
+                    border-radius: 2px;
+                    width: 100%;
+                    height: 2px;
+                    -webkit-transition: all 200ms;
+                    transition: all 200ms;
+                }
+
+                    .htmlmenu-toggle + label > span:last-child {
+                        -webkit-transform-origin: left;
+                        -ms-transform-origin: left;
+                        transform-origin: left;
+                    }
+
+            .htmlmenu-toggle:checked + label {
+                -webkit-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+                .htmlmenu-toggle:checked + label > span:first-child {
+                    width: 50%;
+                    -webkit-transform: rotate(-90deg) translateX(3px);
+                    -ms-transform: rotate(-90deg) translateX(3px);
+                    transform: rotate(-90deg) translateX(3px);
+                    -webkit-transform-origin: right;
+                    -ms-transform-origin: right;
+                    transform-origin: right;
+                }
+
+                .htmlmenu-toggle:checked + label > span:last-child {
+                    width: 50%;
+                    -webkit-transform: rotate(-90deg) translateX(-3px) translateY(10px);
+                    -ms-transform: rotate(-90deg) translateX(-3px) translateY(10px);
+                    transform: rotate(-90deg) translateX(-3px) translateY(10px);
+                }
+
+            .htmlmenu-toggle:checked ~ .htmlmenu-menu {
+                padding-bottom: 20px;
+            }
+
+                .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul {
+                    display: block;
+                }
+
+                    .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                        color: #0079ff;
+                    }
+
+                .htmlmenu-toggle:checked ~ .htmlmenu-menu input:checked ~ ul {
+                    display: block;
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
+
+        /* HTML MENU MENU */
+
+        .htmlmenu-menu {
+            line-height: 1.5;
+        }
+
+            .htmlmenu-menu ul {
+                margin: 0;
+                padding: 0;
+                display: none;
+                list-style: none;
+            }
+
+            .htmlmenu-menu li {
+                position: relative;
+                list-style: none;
+            }
+
+                .htmlmenu-menu li > a {
+                    display: block;
+                    font-family: sans-serif;
+                    color: #000000;
+                    padding: 15px 30px;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    position: relative;
+                    -webkit-transition: all 0.2s ease-in-out;
+                    transition: all 0.2s ease-in-out;
+                }
+
+            .htmlmenu-menu input[type=checkbox] {
+                position: absolute;
+                width: 0;
+                height: 0;
+                margin: 0;
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden;
+            }
+
+                .htmlmenu-menu input[type=checkbox]:checked ~ a > label {
+                    -webkit-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                    transform: rotate(-90deg);
+                }
+
+                    .htmlmenu-menu input[type=checkbox]:checked ~ a > label:before {
+                        opacity: 0;
+                    }
+
+            .htmlmenu-menu label {
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                right: 25px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                height: 32px;
+                width: 32px;
+                line-height: 1.5;
+                text-align: center;
+                z-index: 1;
+                -webkit-transition: -webkit-transform .4s;
+                -webkit-transition: transform .4s;
+                transition: transform .4s;
+            }
+
+                .htmlmenu-menu label:before,
+                .htmlmenu-menu label:after {
+                    position: absolute;
+                    content: "";
+                    width: 45%;
+                    height: 1px;
+                    background-color: #000000;
+                    display: block;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    -webkit-transition: -webkit-transform .4s, opacity .4s;
+                    -webkit-transition: transform .4s, opacity .4s;
+                    transition: transform .4s, opacity .4s;
+                    opacity: 1;
+                }
+
+                .htmlmenu-menu label:after {
+                    -webkit-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                }
+
+            .htmlmenu-menu > ul > li > a {
+                font-size: 15px;
+                font-style: normal;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .htmlmenu-menu > ul > li:hover > a,
+            .htmlmenu-menu > ul > li.htmlmenu-menu-current > a {
+                color: #0079ff;
+            }
+
+            .htmlmenu-menu ul ul li > a {
+                font-size: 14px;
+                font-style: normal;
+                font-weight: normal;
+                text-transform: none;
+                padding: 12px 30px;
+            }
+
+        @media (min-width:1024px) {
+            /* HTML MENU HEADER */
+            .htmlmenu-header {
+                -webkit-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
+                position: fixed;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 70px;
+                top: 0;
+                z-index: 99999;
+            }
+
+                .htmlmenu-header.htmlmenu-header-transparent-dark {
+                    background: transparent;
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    height: 70px;
+                    top: 0;
+                }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-logo a {
+                        color: #F0F0F0;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu > ul > li > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                        color: #F0F0F0;
+                    }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu > ul > li > a > label {
+                            border-color: #F0F0F0;
+                        }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu > ul > li:hover > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li:hover > input:checked ~ a,
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu > ul > li.htmlmenu-menu-current > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li.htmlmenu-menu-current > input:checked ~ a {
+                        color: #0079ff;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li:hover > a > label,
+                    .htmlmenu-header.htmlmenu-header-transparent-dark .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li.htmlmenu-menu-current > a > label {
+                        border-color: #000000;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark + .htmlmenu-header-spacer {
+                        height: 0;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark > .htmlmenu-header-shadow {
+                        opacity: 0;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled {
+                        background: rgba(255, 255, 255, 0.95);
+                    }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-logo a {
+                            color: #000000;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu > ul > li > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                            color: #000000;
+                        }
+
+                            .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu > ul > li > a > label {
+                                border-color: #000000;
+                            }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu > ul > li:hover > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li:hover > input:checked ~ a,
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu > ul > li.htmlmenu-menu-current > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li.htmlmenu-menu-current > input:checked ~ a {
+                            color: #0079ff;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li:hover > a > label,
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li.htmlmenu-menu-current > a > label {
+                            border-color: #FFFFFF;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-dark.htmlmenu-header-scrolled > .htmlmenu-header-shadow {
+                            opacity: 1;
+                        }
+
+                .htmlmenu-header.htmlmenu-header-transparent-light {
+                    background: transparent;
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    height: 70px;
+                    top: 0;
+                }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-logo a {
+                        color: #3A3A3A;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu > ul > li > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                        color: #3A3A3A;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu > ul > li:hover > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li:hover > input:checked ~ a,
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu > ul > li.htmlmenu-menu-current > a,
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li.htmlmenu-menu-current > input:checked ~ a {
+                        color: #0079ff;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu > ul > li > a > label {
+                        border-color: #3A3A3A;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li:hover > a > label,
+                    .htmlmenu-header.htmlmenu-header-transparent-light .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li.htmlmenu-menu-current > a > label {
+                        border-color: #000000;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light + .htmlmenu-header-spacer {
+                        height: 0;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light > .htmlmenu-header-shadow {
+                        opacity: 0;
+                    }
+
+                    .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled {
+                        background: rgba(255, 255, 255, 0.95);
+                    }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-logo a {
+                            color: #000000;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu > ul > li > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                            color: #000000;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu > ul > li:hover > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li:hover > input:checked ~ a,
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu > ul > li.htmlmenu-menu-current > a,
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li.htmlmenu-menu-current > input:checked ~ a {
+                            color: #0079ff;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu > ul > li > a > label {
+                            border-color: #000000;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li:hover > a > label,
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li.htmlmenu-menu-current > a > label {
+                            border-color: #FFFFFF;
+                        }
+
+                        .htmlmenu-header.htmlmenu-header-transparent-light.htmlmenu-header-scrolled > .htmlmenu-header-shadow {
+                            opacity: 1;
+                        }
+            /* HTML MENU CONTAINER */
+            .htmlmenu-container {
+                height: 70px;
+                padding: 0 30px;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -webkit-justify-content: space-between;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+            }
+            /* HTML MENU HEADER SHADOW */
+            .htmlmenu-header-shadow {
+                z-index: -1;
+            }
+            /* HTML MENU LOGO */
+            .htmlmenu-logo {
+                position: relative;
+                padding: 0;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                line-height: 70px;
+            }
+
+                .htmlmenu-logo a {
+                    line-height: unset;
+                }
+
+                    .htmlmenu-logo a img {
+                        display: block;
+                    }
+
+            .htmlmenu-header-spacer {
+                height: 70px;
+            }
+
+            .htmlmenu-toggle:checked ~ .htmlmenu-menu {
+                padding-bottom: 0;
+            }
+
+                .htmlmenu-toggle:checked ~ .htmlmenu-menu input:checked ~ ul {
+                    background: rgba(255, 255, 255, 0.95);
+                }
+
+                .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                }
+
+                    .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li > input:checked ~ a {
+                        color: #000000;
+                        background-color: transparent;
+                    }
+
+                    .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li:hover > input:checked ~ a,
+                    .htmlmenu-toggle:checked ~ .htmlmenu-menu > ul > li.htmlmenu-menu-current > input:checked ~ a {
+                        color: #0079ff;
+                    }
+
+            .htmlmenu-toggle + label {
+                opacity: 0;
+                pointer-events: none;
+            }
+            /* HTML MENU MENU */
+            .htmlmenu-menu {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                flex: 1;
+                ;
+            }
+
+                .htmlmenu-menu ul {
+                    display: block;
+                    font-size: 0;
+                }
+
+                .htmlmenu-menu li:hover > a {
+                    opacity: 1;
+                    color: #0079ff;
+                }
+
+                .htmlmenu-menu label {
+                    bottom: 3px;
+                    right: 5px;
+                    height: 6px;
+                    width: 6px;
+                    border-style: solid;
+                    border-color: #000000;
+                    border-width: 0px 1px 1px 0px;
+                    -webkit-transform: rotate(-45deg) !important;
+                    -ms-transform: rotate(-45deg) !important;
+                    transform: rotate(-45deg) !important;
+                }
+
+                    .htmlmenu-menu label:before,
+                    .htmlmenu-menu label:after {
+                        content: none;
+                    }
+
+                .htmlmenu-menu > ul {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex: 1;
+                    ;
+                }
+
+                    .htmlmenu-menu > ul > li {
+                        display: inline-block;
+                        flex: 1;
+                        ;
+                    }
+
+                        .htmlmenu-menu > ul > li > a {
+                            position: relative;
+                            height: 70px;
+                            line-height: 70px;
+                            white-space: nowrap;
+                            padding: 0 20px;
+                        }
+
+                        .htmlmenu-menu > ul > li:last-child > a {
+                            padding: 0 0 0 20px;
+                        }
+
+                        .htmlmenu-menu > ul > li > a > label {
+                            position: relative;
+                            display: inline-block;
+                            margin-left: 15px;
+                            right: inherit;
+                            bottom: inherit;
+                            vertical-align: middle;
+                            top: -2px;
+                            -webkit-transform: rotate(45deg) !important;
+                            -ms-transform: rotate(45deg) !important;
+                            transform: rotate(45deg) !important;
+                            border-color: #000000;
+                        }
+
+                .htmlmenu-menu li > ul {
+                    border-top-width: 3px;
+                    border-top-style: solid;
+                    border-top-color: #0079ff;
+                    display: block;
+                    position: absolute;
+                    width: 230px;
+                    background: rgba(255, 255, 255, 0.95);
+                    padding: 12px 0;
+                    box-shadow: 0px 12px 30px -2px rgba(0, 0, 0, 0.1);
+                    -webkit-transition: all 0.2s ease-in-out;
+                    transition: all 0.2s ease-in-out;
+                    z-index: 1;
+                    will-change: transform, opacity;
+                    pointer-events: none;
+                    visibility: hidden;
+                    opacity: 0;
+                    top: 100%;
+                    left: 0;
+                }
+
+                .htmlmenu-menu li:hover > ul {
+                    opacity: 1;
+                    pointer-events: auto;
+                    visibility: visible;
+                }
+
+                .htmlmenu-menu li > ul ul {
+                    left: 100%;
+                    top: -15px;
+                }
+
+                .htmlmenu-menu li > ul label {
+                    position: absolute;
+                    right: 20px;
+                }
+
+                .htmlmenu-menu li.htmlmenu-submenu-right > ul {
+                    left: inherit;
+                    right: 0;
+                }
+
+                    .htmlmenu-menu li.htmlmenu-submenu-right > ul ul {
+                        left: -100%;
+                        right: 0;
+                    }
+
+                .htmlmenu-menu ul ul li > a {
+                    padding: 10px 20px;
+                    font-size: 14px;
+                    color: #000000;
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-bordered ul ul li:after {
+                    position: absolute;
+                    content: "";
+                    bottom: 0;
+                    left: 20px;
+                    right: 20px;
+                    height: 1px;
+                    background: #f6f6f6;
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-bordered ul ul li:last-child:after {
+                    display: none;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-1 > ul > li > a:before {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    right: 0;
+                    width: 1px;
+                    height: 20px;
+                    background: rgba(0, 0, 0, 0.15);
+                    -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-1 > ul > li:last-child > a:before {
+                    display: none;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-1 > ul > li:hover > a,
+                .htmlmenu-menu.htmlmenu-menu-style-1 > ul > li.htmlmenu-menu-current > a {
+                    color: #0079ff !important;
+                    background-color: transparent !important;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li > a:after {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    bottom: -3px;
+                    width: 100%;
+                    height: 3px;
+                    background: #0079ff;
+                    opacity: 0;
+                    z-index: 0;
+                    -webkit-transition: opacity 0.4s ease-in-out;
+                    transition: opacity 0.4s ease-in-out;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li:last-child > a {
+                    padding: 0 20px;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li:hover > a,
+                .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li.htmlmenu-menu-current > a {
+                    color: #000000 !important;
+                    background-color: #f4f4f4 !important;
+                }
+
+                    .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li:hover > a:after,
+                    .htmlmenu-menu.htmlmenu-menu-style-2 > ul > li.htmlmenu-menu-current > a:after {
+                        opacity: 1;
+                    }
+
+                .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li:last-child > a {
+                    padding: 0 20px;
+                }
+
+                .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li:hover > a,
+                .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li.htmlmenu-menu-current > a {
+                    color: #FFFFFF !important;
+                    background-color: #0079ff !important;
+                }
+
+                    .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li:hover > a > label,
+                    .htmlmenu-menu.htmlmenu-menu-style-3 > ul > li.htmlmenu-menu-current > a > label {
+                        border-color: #FFFFFF;
+                    }
+
+                .htmlmenu-menu.htmlmenu-submenu-scale li > ul {
+                    -webkit-transform: scale(0.5);
+                    -ms-transform: scale(0.5);
+                    transform: scale(0.5);
+                    -webkit-transform-origin: 0 0;
+                    -ms-transform-origin: 0 0;
+                    transform-origin: 0 0;
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-scale li.htmlmenu-submenu-right > ul,
+                .htmlmenu-menu.htmlmenu-submenu-scale li.htmlmenu-submenu-right > ul ul {
+                    -webkit-transform-origin: 100% 0;
+                    -ms-transform-origin: 100% 0;
+                    transform-origin: 100% 0;
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-scale li:hover > ul {
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    transform: scale(1);
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-swing-out li {
+                    -webkit-perspective: 1000px;
+                    -moz-perspective: 1000px;
+                    -ms-perspective: 1000px;
+                    perspective: 1000px;
+                }
+
+                    .htmlmenu-menu.htmlmenu-submenu-swing-out li > ul {
+                        -webkit-transform: rotateX(-45deg);
+                        -ms-transform: rotateX(-45deg);
+                        transform: rotateX(-45deg);
+                        -webkit-transform-origin: 0 0;
+                        -ms-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                    }
+
+                        .htmlmenu-menu.htmlmenu-submenu-swing-out li > ul ul {
+                            -webkit-transform: rotateY(45deg);
+                            -ms-transform: rotateY(45deg);
+                            transform: rotateY(45deg);
+                            -webkit-transform-origin: 0 0;
+                            -ms-transform-origin: 0 0;
+                            transform-origin: 0 0;
+                        }
+
+                    .htmlmenu-menu.htmlmenu-submenu-swing-out li.htmlmenu-submenu-right > ul {
+                        -webkit-transform-origin: 100% 0;
+                        -ms-transform-origin: 100% 0;
+                        transform-origin: 100% 0;
+                    }
+
+                        .htmlmenu-menu.htmlmenu-submenu-swing-out li.htmlmenu-submenu-right > ul ul {
+                            -webkit-transform: rotateY(-45deg);
+                            -ms-transform: rotateY(-45deg);
+                            transform: rotateY(-45deg);
+                            -webkit-transform-origin: 100% 0;
+                            -ms-transform-origin: 100% 0;
+                            transform-origin: 100% 0;
+                        }
+
+                    .htmlmenu-menu.htmlmenu-submenu-swing-out li:hover > ul {
+                        -webkit-transform: rotate(0deg) !important;
+                        -ms-transform: rotate(0deg) !important;
+                        transform: rotate(0deg) !important;
+                    }
+
+                .htmlmenu-menu.htmlmenu-submenu-slide-up li > ul {
+                    -webkit-transform: translateY(15px);
+                    -ms-transform: translateY(15px);
+                    transform: translateY(15px);
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-slide-up li:hover > ul {
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-slide-down li > ul {
+                    -webkit-transform: translateY(-15px);
+                    -ms-transform: translateY(-15px);
+                    transform: translateY(-15px);
+                }
+
+                .htmlmenu-menu.htmlmenu-submenu-slide-down li:hover > ul {
+                    -webkit-transform: translateY(0);
+                    -ms-transform: translateY(0);
+                    transform: translateY(0);
+                }
+
+                .carousel-item img {
+                    height: 80vh; /* 30% от высоты экрана */
+                    object-fit: cover; /* изображение заполняет блок, сохраняя пропорции */
+                }
+        }
+    </style>
+</head>
+<body>
+    <div class="htmlmenu-wrapper">
+        <div class="htmlmenu-header">
+            <div class="htmlmenu-container">
+                <div class="htmlmenu-logo"></div>
+                <input type="checkbox" id="htmlmenu-toggle" class="htmlmenu-toggle">
+                <label for="htmlmenu-toggle"><span></span><span></span><span></span></label>
+                <nav class="htmlmenu-menu htmlmenu-menu-style-3 htmlmenu-submenu-scale" role="navigation">
+                    <ul>
+                        <li class="htmlmenu-menu-current">
+                            <input id="htmlmenu-1539847293313" type="checkbox">
+                            <a href="#main">
+                                ГЛАВНАЯ
+                                <label for="htmlmenu-1539847293313"></label>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#main-tours">Наши туры</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <!--<a href="#">О НАС</a>-->
+                        </li>
+                        <li class="htmlmenu-submenu-right">
+                            <input type="checkbox" id="htmlmenu-1539847293318">
+                            <a href="#contacts">
+                                Контакты
+                                <label for="htmlmenu-1539847293318"></label>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#telegram">TELEGRAM</a>
+                                </li>
+                                <li>
+                                    <a href="#whatsapp">WHATSAPP</a>
+                                </li>
+                                <li>
+                                    <a href="#max">MAX</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="htmlmenu-header-shadow"></div>
+        </div>
+        <div class="htmlmenu-header-spacer"></div>
+    </div>
+
+    <div id="tourCarousel" class="carousel slide shadow-lg" data-bs-ride="carousel">
+        <!-- Индикаторы -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#tourCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#tourCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#tourCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Слайды -->
+        <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/seoul1.jpg') }}" class="d-block w-100" alt="Фото тура 1">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                    <h5>Обзорный Сеул</h5>
+                    <p>Исторические достопримечательности и культурные места столицы.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/namisom.jpg') }}" class="d-block w-100" alt="Фото тура 2">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                    <h5>Остров Намисом</h5>
+                    <p>Живописный остров с музеями, концертами и природой.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/seoraksan.jpg') }}" class="d-block w-100" alt="Фото тура 3">
+                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                    <h5>Горы Сораксан</h5>
+                    <p>Великолепные пейзажи круглый год.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопки управления -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#tourCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#tourCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div id="main" class="container my-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Вас приветствует тур-агенство "Туры по Корее"</h2>
+            </div>
+            <div class="card-body">
+                <p class="lead">
+                    Добро пожаловать на сайт тур-агенства "Туры по Корее". На этом сайте вы можете ознакомиться с существующими тур-поездками.
+                </p>
+                <p>
+                    Мы покажем вам все популярные достопримечательности Кореи, познакомим вас с культурой Кореи и ее историей.
+                </p>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div id="main-tours" class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Южная Корея — Экскурсии</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- ОБЗОРНЫЙ СЕУЛ -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Обзорный Сеул (Авто, индивидуальная)</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Ворота Суннемун</li>
+                                    <li class="list-group-item">📍 Дворец Кенбоккун (2$)</li>
+                                    <li class="list-group-item">📍 Смена караула дворца</li>
+                                    <li class="list-group-item">📍 Деревня Пукчхон</li>
+                                    <li class="list-group-item">📍 Храм Чогеса</li>
+                                    <li class="list-group-item">📍 Фольклорный музей</li>
+                                    <li class="list-group-item">📍 Павильон Чончжон</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 6 часов</p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 320$ (1–3 чел)<br>
+                                        • 400$ (4–6 чел)<br>
+                                        • От 7 чел — договорная
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ОСТРОВ НАМИСОН -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Остров Намисом</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Контактный зоопарк</li>
+                                    <li class="list-group-item">📍 Художественная галерея</li>
+                                    <li class="list-group-item">📍 Музей Корейского сериала</li>
+                                    <li class="list-group-item">📍 Местные концерты</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 10:00 – 18:00</p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер, билеты и обед</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 400$ (1–3 чел)<br>
+                                        • 500$ (4–6 чел)<br>
+                                        • 800$ (7–13 чел)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- КРЕПОСТЬ ХВАСОН -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Крепость Хвасон (Сувон)</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Деревня Минсокчон</li>
+                                    <li class="list-group-item">📍 Крепость Хвасон (15 км)</li>
+                                    <li class="list-group-item">📍 Водопад</li>
+                                    <li class="list-group-item">📍 Стрельба из лука (по желанию)</li>
+                                    <li class="list-group-item">📍 Улочки ремесленников</li>
+                                    <li class="list-group-item">📍 Национальный музей (по желанию)</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 10:00 – 18:30</p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер, билеты и обед</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 350$ (1–3 чел)<br>
+                                        • 500$ (4–6 чел)<br>
+                                        • 700$ (7–13 чел)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ГОРЫ СОРАКСАН -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Горы Сораксан</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Горы Сораксан — великолепные пейзажи круглый год</li>
+                                    <li class="list-group-item">📍 Буддийский храм</li>
+                                    <li class="list-group-item">📍 Бронзовый Будда</li>
+                                    <li class="list-group-item">📍 Канатная дорога (15 000 вон)</li>
+                                    <li class="list-group-item">📍 Обсерватория DMZ (по желанию, +100$)</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 6:30 – 19:30</p>
+                                    <p><strong>🚌 Время в пути:</strong> 2,5 – 3 часа</p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер, программа на автомобиле, билеты и обед</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 400$ (1–4 чел)<br>
+                                        • 550$ (5–8 чел)<br>
+                                        • 900$ (9–13 чел)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- НЕОБЫЧНЫЕ МАРШРУТЫ -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Необычные маршруты</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Гора Наксан</li>
+                                    <li class="list-group-item">📍 Пещера Кванмен</li>
+                                    <li class="list-group-item">📍 Сеульская тюрьма — музей Содемун</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 10:00 – 17:00</p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 350$ (1–5 чел)<br>
+                                        • 500$ (6–13 чел)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- СОВРЕМЕННЫЙ СЕУЛ -->
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Современный Сеул</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Lotte World Tower (30$ билет)</li>
+                                    <li class="list-group-item">📍 Олимпийский парк</li>
+                                    <li class="list-group-item">📍 Библиотека Starfield</li>
+                                    <li class="list-group-item">📍 Улица талисманов K-pop</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 5–6 часов</p>
+                                    <p><strong>📌 Согласовать с гидом</strong></p>
+                                    <p><strong>✅ Включено:</strong> Русский гид, трансфер, билеты</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 290$ (1–3 чел)<br>
+                                        • 400$ (4–6 чел)<br>
+                                        • 600$ (7–13 чел)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Поездка в DMZ</h5>
+                                <p class="card-text">Откройте для себя историю Корейской войны и демилитаризованной зоны:</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">📍 Госёкджон</li>
+                                    <li class="list-group-item">📍 2-й туннель (500 м, закрыт по вторникам)</li>
+                                    <li class="list-group-item">📍 Обсерватория мира Чхорвон (1,3 часа)</li>
+                                    <li class="list-group-item">📍 Монорельсовая дорога</li>
+                                    <li class="list-group-item">📍 Станция Вольчжонгри</li>
+                                    <li class="list-group-item">📍 Здание трудовой партии</li>
+                                    <li class="list-group-item">📍 T-образный висячий мост</li>
+                                    <li class="list-group-item">📍 Американская база</li>
+                                </ul>
+
+                                <div class="mt-3">
+                                    <p><strong>⏱ Время:</strong> 06:00 – 19:00</p>
+                                    <p><strong>❗️ Требуются данные паспорта</strong></p>
+                                    <p><strong>✅ Включено:</strong> Русскоязычный гид, трансфер</p>
+                                    <p>
+                                        <strong>💰 Стоимость:</strong><br>
+                                        • 300$ (1–3 человека)<br>
+                                        • 450$ (4–6 человек)<br>
+                                        • 900$ (7–13 человек, включая билеты и обед)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div id="contacts" class="container my-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Наши контакты</h2>
+            </div>
+            <div class="card-body">
+                <p id="telegram" class="lead">
+                    <a href="https://t.me/mikhailkorea">Наш Telegram-канал</a>
+                </p>
+                <p>
+                    В нашем Telegram канале вы можете следить за самыми последними новостями!
+                </p>
+
+                <p id="max" class="lead">
+                    <a href="https://max.ru/join/aDQu1Trg7mz0nRxgsooBYxotojB8AvFafw6t5THVgWA">Наш MAX-канал</a>
+                </p>
+                <p>
+                    Мы также появились в приложении MAX!
+                </p>
+
+                <p id="whatsapp" class="lead">
+                    <a href="https://whatsapp.com/channel/0029VbC3ampIHphIr3W4ZZ0R">Наш WhatsApp-канал</a>
+                </p>
+                <p>
+                    Вся новейшая информация также доступна в нашем WhatsApp канале!
+                </p>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            (function() {
+            var node = document.querySelector(".htmlmenu-header");
+            var stop = node.offsetTop;
+            var window_last_position = 0;
+            var scroll = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            // IE Fallback, you can even fallback to onscroll
+            function(callback) {
+            window.setTimeout(callback, 1000 / 60)
+            };
+
+            var loop = function() {
+            // avoid calculations if not needed
+            if (window_last_position === window.pageYOffset) {
+            scroll(loop);
+            return false;
+            } else window_last_position = window.pageYOffset;
+
+            //... calculations
+            if (window_last_position > stop) {
+            // stick the div
+            if (node.className.indexOf(" htmlmenu-header-scrolled") === -1) {
+            node.className = node.className + ' htmlmenu-header-scrolled';
+            }
+            } else {
+            // release the div
+            node.className = node.className.indexOf(' htmlmenu-header-scrolled') >= 0 ? node.className.replace(' htmlmenu-header-scrolled', '') : node.className;
+            }
+
+            scroll(loop);
+            };
+
+            // call the loop for the first time
+            loop();
+            })();
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
